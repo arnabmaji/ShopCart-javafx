@@ -1,5 +1,6 @@
 package io.github.arnabmaji19;
 
+import io.github.arnabmaji19.model.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,4 +36,9 @@ public class App extends Application {
         launch();
     }
 
+    @Override
+    public void init() throws Exception {
+        super.init();
+        Database.getInstance().connect();
+    }
 }

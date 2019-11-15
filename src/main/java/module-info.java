@@ -8,5 +8,6 @@ module io.github.arnabmaji19 {
 
     opens io.github.arnabmaji19 to javafx.fxml;
     opens io.github.arnabmaji19.controller;
+    opens io.github.arnabmaji19.model;
     exports io.github.arnabmaji19;
 }
