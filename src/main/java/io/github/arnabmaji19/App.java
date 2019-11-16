@@ -14,11 +14,15 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    private static final String APP_WINDOW  = "admin_panel";
+
     private static Scene scene;
+
+
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("sign_up_user"), 1000, 600);
+        scene = new Scene(loadFXML(APP_WINDOW), 1000, 600);
         stage.setScene(scene);
         stage.show();
     }
@@ -27,7 +31,7 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    public static Parent loadFXML(String fxml) throws IOException {
+    private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }

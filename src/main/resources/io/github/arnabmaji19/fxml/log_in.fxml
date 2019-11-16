@@ -45,5 +45,6 @@
         GridPane.rowIndex="4"
         GridPane.columnIndex="0"
         GridPane.columnSpan="2"
-        GridPane.halignment="CENTER"/>
+        GridPane.halignment="CENTER"
+        onMouseClicked="#signUpNewUser"/>
 </GridPane>

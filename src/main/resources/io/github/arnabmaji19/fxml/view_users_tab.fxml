@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="io.github.arnabmaji19.controller.ViewUsersTabController"
+          alignment="CENTER" vgap="20" hgap="20">
+    <Label
+        text="View Users"
+        styleClass="large-text"
+        GridPane.rowIndex="0"
+        GridPane.columnIndex="0"
+        GridPane.halignment="CENTER"/>
+
+    <TableView
+        fx:id="usersTableView"
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="0"
+        stylesheets="@../styles/table-view.css"
+        prefHeight="400"
+        prefWidth="600">
+    </TableView>
+    <JFXButton
+        text="Refresh"
+        GridPane.rowIndex="2"
+        GridPane.columnIndex="0"
+        GridPane.columnSpan="2"
+        GridPane.halignment="CENTER"
+        onAction="#refreshTable"
+        stylesheets="@../styles/style.css"/>
+</GridPane>

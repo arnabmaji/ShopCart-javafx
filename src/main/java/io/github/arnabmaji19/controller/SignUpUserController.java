@@ -11,6 +11,7 @@ import io.github.arnabmaji19.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import static com.mongodb.client.model.Filters.*;
@@ -74,7 +75,7 @@ public class SignUpUserController {
         }
 
         new Thread(() ->{
-            User newUser = new User(name, email, phoneNumber, password, new BasicDBList());
+            User newUser = new User(name, email, phoneNumber, password, new ArrayList<>());
             userMongoCollection.insertOne(newUser);
 
         }).start();

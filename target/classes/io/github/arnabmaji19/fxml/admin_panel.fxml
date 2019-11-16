@@ -14,7 +14,9 @@
     <Tab text="View Products">
         <fx:include source="view_products_tab.fxml"/>
     </Tab>
-   <Tab text="Users"/>
+    <Tab text="Users">
+        <fx:include source="view_users_tab.fxml"/>
+    </Tab>
    <Tab text="Transactions"/>
    <Tab text="Log Out"/>
 </TabPane>
