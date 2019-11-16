@@ -2,9 +2,48 @@
 
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.JFXButton?>
 <GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="io.github.arnabmaji19.controller.LogInController"
-            >
-
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="io.github.arnabmaji19.controller.LogInController"
+          hgap="20" vgap="15" alignment="CENTER" stylesheets="@../styles/style.css">
+    <Label
+        text="Log In as User"
+        styleClass="large-text"
+        GridPane.rowIndex="0"
+        GridPane.columnIndex="0"
+        GridPane.columnSpan="2"
+        GridPane.halignment="CENTER"/>
+    <Text
+        text="Email"
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="0"/>
+    <JFXTextField
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="1"
+            fx:id="emailField"/>
+    <Text
+            text="Password"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="0"/>
+    <JFXPasswordField
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="1"
+            fx:id="passwordField"/>
+    <JFXButton
+            text="Log In"
+            GridPane.rowIndex="3"
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="2"
+            GridPane.halignment="CENTER"/>
+    <Label
+        text="Don't have an account, Sign up here!"
+        GridPane.rowIndex="4"
+        GridPane.columnIndex="0"
+        GridPane.columnSpan="2"
+        GridPane.halignment="CENTER"/>
 </GridPane>

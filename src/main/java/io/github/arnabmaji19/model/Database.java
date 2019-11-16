@@ -41,4 +41,8 @@ public class Database {
     public MongoCollection<Product> getProductsCollection(){
         return database.getCollection("products", Product.class);
     }
+
+    public MongoCollection<User> getUsersCollection(){
+        return database.getCollection("users", User.class);
+    }
 }

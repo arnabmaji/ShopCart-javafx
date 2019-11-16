@@ -5,6 +5,7 @@ module io.github.arnabmaji19 {
     requires org.mongodb.driver.core;
     requires org.mongodb.bson;
     requires com.jfoenix;
+    requires javafx.graphics;
 
     opens io.github.arnabmaji19 to javafx.fxml;
     opens io.github.arnabmaji19.controller;

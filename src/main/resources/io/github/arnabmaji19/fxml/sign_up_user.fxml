@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+
+<StackPane
+    fx:id="stackPane"
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="io.github.arnabmaji19.controller.SignUpUserController"
+    stylesheets="@../styles/style.css">
+    <GridPane alignment="CENTER" hgap="20" vgap="15">
+        <Text
+                text="Sign Up as User"
+                GridPane.rowIndex="0"
+                GridPane.columnIndex="0"
+                GridPane.columnSpan="2"
+                GridPane.halignment="CENTER"
+                styleClass="large-text"/>
+        <Text
+                text="Name"
+                GridPane.rowIndex="1"
+                GridPane.columnIndex="0"/>
+        <JFXTextField
+                fx:id="userNameField"
+                GridPane.rowIndex="1"
+                GridPane.columnIndex="1"/>
+        <Text
+                text="Email"
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="0"/>
+        <JFXTextField
+                fx:id="userEmailField"
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="1"/>
+        <Text
+                text="Phone Number"
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="0"/>
+        <JFXTextField
+                fx:id="userPhoneNumberField"
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="1"/>
+        <Text
+                text="Password"
+                GridPane.rowIndex="4"
+                GridPane.columnIndex="0"/>
+        <JFXPasswordField
+                fx:id="userPasswordField"
+                GridPane.rowIndex="4"
+                GridPane.columnIndex="1"/>
+        <Text
+                text="Confirm Password"
+                GridPane.rowIndex="5"
+                GridPane.columnIndex="0"/>
+        <JFXPasswordField
+                fx:id="userConfirmPasswordField"
+                GridPane.rowIndex="5"
+                GridPane.columnIndex="1"/>
+
+        <JFXCheckBox
+                fx:id="termsCheckBox"
+                text="I agree to the terms and condition."
+                GridPane.rowIndex="6"
+                GridPane.columnIndex="0"
+                GridPane.columnSpan="2"/>
+
+        <JFXButton
+                text="Sign Up"
+                GridPane.rowIndex="7"
+                GridPane.columnIndex="0"
+                GridPane.columnSpan="2"
+                GridPane.halignment="CENTER"
+                onAction="#createNewUser"/>
+
+
+    </GridPane>
+
+</StackPane>
