@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import com.jfoenix.controls.JFXButton?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="io.github.arnabmaji19.controller.ViewProductsController"
+          vgap="10" hgap="15" alignment="CENTER" style="-fx-padding: 16">
+    <Label
+        text="All available Products"
+        GridPane.rowIndex="0"
+        GridPane.columnIndex="0"
+        GridPane.halignment="CENTER"/>
+    <TableView
+        fx:id="productsTableView"
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="0"
+        stylesheets="@../styles/table-view.css"
+        prefWidth="600"
+        prefHeight="500"/>
+    <JFXButton
+        text="Refresh"
+        GridPane.rowIndex="2"
+        GridPane.columnIndex="0"
+        GridPane.halignment="CENTER"
+        onAction="#refreshTable"
+        stylesheets="@../styles/style.css"/>
+
+</GridPane>

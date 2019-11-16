@@ -18,9 +18,6 @@ Text{
     -fx-pref-width: 200;
     -fx-text-fill: WHITE;
 }
-.file-selector{
-    -fx-background-color: #f55c36;
-}
 .btn-lg{
     -fx-pref-height: 150;
     -fx-pref-width: 150;
