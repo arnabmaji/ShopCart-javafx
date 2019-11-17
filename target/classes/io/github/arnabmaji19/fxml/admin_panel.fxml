@@ -3,11 +3,11 @@
 <?import javafx.scene.control.Tab?>
 
 
-<?import javafx.scene.control.TabPane?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-         tabClosingPolicy="UNAVAILABLE"
-         fx:controller="io.github.arnabmaji19.controller.AdminPanelController">
+<?import com.jfoenix.controls.JFXTabPane?>
+<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+               xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+               tabClosingPolicy="UNAVAILABLE"
+               fx:controller="io.github.arnabmaji19.controller.AdminPanelController">
    <Tab text="Add Products">
       <fx:include source="add_products_tab.fxml"/>
    </Tab>
@@ -19,4 +19,4 @@
     </Tab>
    <Tab text="Transactions"/>
    <Tab text="Log Out"/>
-</TabPane>
+</JFXTabPane>

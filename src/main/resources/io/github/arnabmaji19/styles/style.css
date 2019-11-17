@@ -1,9 +1,6 @@
 .root  {
     -fx-background-color: white;
 }
-*{
-    -fx-padding: 8px;
-}
 .large-text{
     -fx-font-size: 25;
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXListView?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="io.github.arnabmaji19.controller.MarketPlaceController"
+            stylesheets="@../styles/style.css">
+
+    <top>
+        <Label
+            text="ShopCart Market Place"
+            BorderPane.alignment="CENTER"
+            styleClass="large-text"/>
+    </top>
+    <center>
+        <GridPane
+                BorderPane.alignment="CENTER"
+                alignment="CENTER">
+            <JFXListView
+                    fx:id="productsListView"
+
+                    GridPane.rowIndex="0"
+                    GridPane.columnIndex="0"
+                    prefWidth="1000"
+                    prefHeight="600"/>
+        </GridPane>
+    </center>
+</BorderPane>
