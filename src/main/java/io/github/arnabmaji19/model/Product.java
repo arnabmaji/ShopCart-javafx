@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 
 public class Product {
 
-    private ObjectId _id;
+    private ObjectId id;
     private String name;
     private String description;
     private int price;
@@ -12,20 +12,20 @@ public class Product {
 
     public Product(){}
 
-    public Product(ObjectId _id, String name, String description, int price, int quantity) {
-        this._id = _id;
+    public Product(ObjectId id, String name, String description, int price, int quantity) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getName() {

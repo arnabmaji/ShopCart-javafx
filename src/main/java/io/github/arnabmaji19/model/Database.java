@@ -45,4 +45,8 @@ public class Database {
     public MongoCollection<User> getUsersCollection(){
         return database.getCollection("users", User.class);
     }
+
+    public MongoCollection<Transaction> getTransactionsCollection(){
+        return database.getCollection("transactions", Transaction.class);
+    }
 }

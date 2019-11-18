@@ -2,12 +2,14 @@ package io.github.arnabmaji19.controller;
 
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
-import io.github.arnabmaji19.model.AlertDialog;
-import io.github.arnabmaji19.model.Database;
-import io.github.arnabmaji19.model.Product;
+import io.github.arnabmaji19.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import org.bson.types.ObjectId;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class BuyNowDialogController{
 
@@ -33,9 +35,18 @@ public class BuyNowDialogController{
         AlertDialog.show(stackPane, "Product will be delivered to you!");
 
         new Thread(() -> {
+
+            Session session = Session.getInstance();
+            Transaction transaction = new Transaction(new ObjectId(), product.getId(),
+                    session.getUsername(), session.getEmail(), LocalTime.now().toString(), LocalDate.now().toString());
+            Database.getInstance()
+                    .getTransactionsCollection()
+                    .insertOne(transaction);
+
+            //Update stock
             Database.getInstance()
                     .getProductsCollection()
-                    .updateOne(Filters.eq("id", this.product.get_id()), Updates.inc("quantity", -1));
+                    .updateOne(Filters.eq("_id", this.product.getId()), Updates.inc("quantity", -1));
         }).start();
     }
 }

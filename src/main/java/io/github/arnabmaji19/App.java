@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static final String APP_WINDOW  = "market_place";
+    private static final String APP_WINDOW  = "log_in";
 
     private static Scene scene;
 
