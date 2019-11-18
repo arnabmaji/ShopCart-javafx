@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static final String APP_WINDOW  = "log_in";
+    private static final String APP_WINDOW  = "admin_panel";
 
     private static Scene scene;
 

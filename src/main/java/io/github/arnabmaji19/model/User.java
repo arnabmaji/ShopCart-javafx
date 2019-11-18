@@ -1,10 +1,11 @@
 package io.github.arnabmaji19.model;
 
-import com.mongodb.BasicDBList;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 public class User {
+    private ObjectId id;
     private String name;
     private String email;
     private String phoneNumber;
@@ -13,12 +14,21 @@ public class User {
 
     public User(){}
 
-    public User(String name, String email, String phoneNumber, String password, List<String> cart) {
+    public User(ObjectId id, String name, String email, String phoneNumber, String password, List<String> cart) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.cart = cart;
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getName() {

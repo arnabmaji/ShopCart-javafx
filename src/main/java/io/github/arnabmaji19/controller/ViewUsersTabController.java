@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class ViewUsersTabController implements Initializable {
@@ -31,7 +32,11 @@ public class ViewUsersTabController implements Initializable {
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
         usersTableView.setEditable(true);
-        usersTableView.getColumns().addAll(nameColumn, emailColumn, phoneNumberColumn);
+        usersTableView.getColumns().addAll(
+                Arrays.asList(
+                        nameColumn, emailColumn, phoneNumberColumn
+                )
+        );
         usersTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         refreshTable();

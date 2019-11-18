@@ -5,19 +5,22 @@ import org.bson.types.ObjectId;
 public class Transaction {
     private ObjectId id;
     private ObjectId productId;
-    private String buyerName;
-    private String buyerEmail;
+    private ObjectId userId;
     private String timeOfPurchase;
     private String dateOfPurchase;
+    private int quantity;
+    private int totalPrice;
 
+    public Transaction(){}
 
-    public Transaction(ObjectId id, ObjectId productId, String buyerName, String buyerEmail, String timeOfPurchase, String dateOfPurchase) {
+    public Transaction(ObjectId id, ObjectId productId, ObjectId userId, String timeOfPurchase, String dateOfPurchase, int quantity, int totalPrice) {
         this.id = id;
         this.productId = productId;
-        this.buyerName = buyerName;
-        this.buyerEmail = buyerEmail;
+        this.userId = userId;
         this.timeOfPurchase = timeOfPurchase;
         this.dateOfPurchase = dateOfPurchase;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
     }
 
     public ObjectId getId() {
@@ -36,20 +39,12 @@ public class Transaction {
         this.productId = productId;
     }
 
-    public String getBuyerName() {
-        return buyerName;
+    public ObjectId getUserId() {
+        return userId;
     }
 
-    public void setBuyerName(String buyerName) {
-        this.buyerName = buyerName;
-    }
-
-    public String getBuyerEmail() {
-        return buyerEmail;
-    }
-
-    public void setBuyerEmail(String buyerEmail) {
-        this.buyerEmail = buyerEmail;
+    public void setUserId(ObjectId userId) {
+        this.userId = userId;
     }
 
     public String getTimeOfPurchase() {
@@ -66,5 +61,21 @@ public class Transaction {
 
     public void setDateOfPurchase(String dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

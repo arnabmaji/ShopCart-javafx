@@ -37,8 +37,11 @@ public class BuyNowDialogController{
         new Thread(() -> {
 
             Session session = Session.getInstance();
-            Transaction transaction = new Transaction(new ObjectId(), product.getId(),
-                    session.getUsername(), session.getEmail(), LocalTime.now().toString(), LocalDate.now().toString());
+            Transaction transaction = new Transaction(new ObjectId(),
+                    product.getId(),
+                    session.getUserId(),
+                    LocalTime.now().toString(),
+                    LocalDate.now().toString(),1, product.getPrice());
             Database.getInstance()
                     .getTransactionsCollection()
                     .insertOne(transaction);

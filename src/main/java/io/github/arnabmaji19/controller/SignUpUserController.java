@@ -3,18 +3,18 @@ package io.github.arnabmaji19.controller;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.mongodb.BasicDBList;
 import com.mongodb.client.MongoCollection;
 import io.github.arnabmaji19.model.AlertDialog;
 import io.github.arnabmaji19.model.Database;
 import io.github.arnabmaji19.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Filters.eq;
 
 
 
@@ -75,7 +75,7 @@ public class SignUpUserController {
         }
 
         new Thread(() ->{
-            User newUser = new User(name, email, phoneNumber, password, new ArrayList<>());
+            User newUser = new User(new ObjectId(), name, email, phoneNumber, password, new ArrayList<>());
             userMongoCollection.insertOne(newUser);
 
         }).start();

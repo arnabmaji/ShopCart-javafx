@@ -49,7 +49,7 @@ public class LogInController {
                 AlertDialog.show(stackPane, "Log In successful!");
 
                 //Creating session for current user
-                Session.getInstance().createSession(user.getName(), email);
+                Session.getInstance().createSession(user.getId(), user.getName(), email);
 
                 PauseTransition delay = new PauseTransition(Duration.seconds(2));
                 delay.setOnFinished(event -> {

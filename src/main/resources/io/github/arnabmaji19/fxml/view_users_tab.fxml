@@ -8,10 +8,10 @@
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="io.github.arnabmaji19.controller.ViewUsersTabController"
-          alignment="CENTER" vgap="20" hgap="20">
+          alignment="CENTER" style="-fx-padding: 16" vgap="10" hgap="15">
     <Label
         text="View Users"
-        styleClass="large-text"
+        style="-fx-font-size: 20"
         GridPane.rowIndex="0"
         GridPane.columnIndex="0"
         GridPane.halignment="CENTER"/>
@@ -21,8 +21,8 @@
         GridPane.rowIndex="1"
         GridPane.columnIndex="0"
         stylesheets="@../styles/table-view.css"
-        prefHeight="400"
-        prefWidth="600">
+        prefHeight="500"
+        prefWidth="1000">
     </TableView>
     <JFXButton
         text="Refresh"

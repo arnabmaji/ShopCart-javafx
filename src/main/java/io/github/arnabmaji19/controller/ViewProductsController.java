@@ -7,12 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class ViewProductsController implements Initializable {
@@ -36,7 +36,11 @@ public class ViewProductsController implements Initializable {
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         productsTableView.setEditable(true);
-        productsTableView.getColumns().addAll(productNameColumn, productDescriptionColumn, priceColumn, quantityColumn);
+        productsTableView.getColumns().addAll(
+                Arrays.asList(
+                        productNameColumn, productDescriptionColumn, priceColumn, quantityColumn
+                )
+        );
         productsTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         refreshTable();
     }

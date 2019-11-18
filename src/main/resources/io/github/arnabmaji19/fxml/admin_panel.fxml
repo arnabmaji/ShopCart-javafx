@@ -17,6 +17,8 @@
     <Tab text="Users">
         <fx:include source="view_users_tab.fxml"/>
     </Tab>
-   <Tab text="Transactions"/>
+    <Tab text="Transactions">
+        <fx:include source="transactions_tab.fxml"/>
+    </Tab>
    <Tab text="Log Out"/>
 </JFXTabPane>
