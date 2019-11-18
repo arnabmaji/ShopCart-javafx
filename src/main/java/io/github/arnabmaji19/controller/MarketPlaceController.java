@@ -17,13 +17,18 @@ public class MarketPlaceController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        refreshMarketPlace();
+        productsListView.setCellFactory(param -> new ProductListViewCellController());
+        productsListView.setFocusTraversable(false);
+    }
+
+    @FXML
+    private void refreshMarketPlace(){
         ObservableList<Product> productList = FXCollections.observableArrayList();
         for (Product product : Database.getInstance()
                 .getProductsCollection().find()) {
             productList.add(product);
+            productsListView.setItems(productList);
         }
-        productsListView.setItems(productList);
-        productsListView.setCellFactory(param -> new ProductListViewCellController());
-        productsListView.setFocusTraversable(false);
     }
 }

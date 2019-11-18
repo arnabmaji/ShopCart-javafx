@@ -4,7 +4,10 @@
 .large-text{
     -fx-font-size: 25;
 }
-Text{
+Label{
+    -fx-font-size: 15;
+}
+Text {
     -fx-font-size: 15;
 }
 .jfx-button{

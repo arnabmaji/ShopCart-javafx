@@ -35,7 +35,7 @@
     </HBox>
     <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1"
           GridPane.rowSpan="3" GridPane.rowIndex="0">
-        <JFXButton prefWidth="100.0" text="Buy Now"/>
-        <JFXButton prefWidth="100.0" text="Add to Cart"/>
+        <JFXButton prefWidth="100.0" text="Buy Now" fx:id="buyNowButton"/>
+        <JFXButton prefWidth="100.0" text="Add to Cart" fx:id="addToCartButton"/>
     </VBox>
 </GridPane>

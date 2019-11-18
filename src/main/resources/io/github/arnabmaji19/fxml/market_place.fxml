@@ -4,24 +4,41 @@
 
 <?import javafx.scene.control.Label?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="io.github.arnabmaji19.controller.MarketPlaceController"
             stylesheets="@../styles/style.css">
 
     <top>
-        <Label
-            text="ShopCart Market Place"
-            BorderPane.alignment="CENTER"
-            styleClass="large-text"/>
+        <AnchorPane
+            style="-fx-padding: 8">
+            <Label
+                    text="ShopCart Market Place"
+                    BorderPane.alignment="CENTER"
+                    styleClass="large-text"
+                    AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.topAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0"
+                    onMouseClicked="#refreshMarketPlace"/>
+
+            <ImageView BorderPane.alignment="CENTER"
+                       AnchorPane.topAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0"
+                        fitHeight="50" fitWidth="50">
+                <Image url="@../images/refresh.png"/>
+            </ImageView>
+        </AnchorPane>
+
     </top>
     <center>
         <GridPane
                 BorderPane.alignment="CENTER"
                 alignment="CENTER">
+
             <JFXListView
                     fx:id="productsListView"
-
                     GridPane.rowIndex="0"
                     GridPane.columnIndex="0"
                     prefWidth="1000"
