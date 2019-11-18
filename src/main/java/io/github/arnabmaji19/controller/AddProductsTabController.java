@@ -6,6 +6,7 @@ import io.github.arnabmaji19.model.Database;
 import io.github.arnabmaji19.model.Product;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+import org.bson.types.ObjectId;
 
 public class AddProductsTabController {
 
@@ -44,7 +45,7 @@ public class AddProductsTabController {
 
         //Adding new product in Background Thread
         new Thread(() -> {
-            var product = new Product(productName, productDescription, price, quantity);
+            var product = new Product(new ObjectId(), productName, productDescription, price, quantity);
             Database.getInstance().getProductsCollection().insertOne(product);
         }).start();
 

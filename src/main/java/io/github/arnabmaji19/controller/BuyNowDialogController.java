@@ -1,6 +1,9 @@
 package io.github.arnabmaji19.controller;
 
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import io.github.arnabmaji19.model.AlertDialog;
+import io.github.arnabmaji19.model.Database;
 import io.github.arnabmaji19.model.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -16,7 +19,7 @@ public class BuyNowDialogController{
     private Product product;
 
 
-    public void initData(Product product){
+    void initData(Product product){
         this.product = product;
 
         productNameLabel.setText(product.getName());
@@ -30,7 +33,9 @@ public class BuyNowDialogController{
         AlertDialog.show(stackPane, "Product will be delivered to you!");
 
         new Thread(() -> {
+            Database.getInstance()
+                    .getProductsCollection()
+                    .updateOne(Filters.eq("id", this.product.get_id()), Updates.inc("quantity", -1));
         }).start();
-
     }
 }

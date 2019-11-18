@@ -1,6 +1,9 @@
 .root  {
     -fx-background-color: white;
 }
+*{
+    -fx-font-family: "Arial";
+}
 .large-text{
     -fx-font-size: 25;
 }
