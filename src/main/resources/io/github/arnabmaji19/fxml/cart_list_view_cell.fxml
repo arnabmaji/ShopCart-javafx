@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane fx:id="anchorPane" prefHeight="80.0" prefWidth="650.0" style="-fx-padding: 8" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <GridPane alignment="CENTER" hgap="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Label fx:id="productName" text="product_name" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" />
+        <Label fx:id="totalPrice" text="total_price" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+
+        <Label fx:id="productDescription" text="product_description" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+        <Label fx:id="totalQuantity" text="product_quantity" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+    <JFXButton
+            fx:id="removeItemFromCartButton"
+            AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="24.0"
+            style="-fx-background-color: #ffffff; -fx-pref-width: 20" >
+        <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/cross.png" />
+            </ImageView>
+        </graphic>
+    </JFXButton>
+</AnchorPane>

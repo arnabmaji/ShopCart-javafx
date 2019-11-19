@@ -10,7 +10,7 @@
           fx:controller="io.github.arnabmaji19.controller.ViewUsersTabController"
           alignment="CENTER" style="-fx-padding: 16" vgap="10" hgap="15">
     <Label
-        text="View Users"
+        text="All Users"
         style="-fx-font-size: 20"
         GridPane.rowIndex="0"
         GridPane.columnIndex="0"

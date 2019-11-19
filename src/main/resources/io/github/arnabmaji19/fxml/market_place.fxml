@@ -23,12 +23,20 @@
                     AnchorPane.leftAnchor="0.0"
                     onMouseClicked="#refreshMarketPlace"/>
 
-            <ImageView BorderPane.alignment="CENTER"
-                       AnchorPane.topAnchor="0.0"
-                       AnchorPane.rightAnchor="0.0"
-                        fitHeight="50" fitWidth="50">
-                <Image url="@../images/refresh.png"/>
-            </ImageView>
+            <HBox
+                    BorderPane.alignment="CENTER"
+                    AnchorPane.topAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0"
+                    spacing="15">
+                <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#viewCart">
+                    <Image url="@../images/cart.png"/>
+
+                </ImageView>
+                <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#refreshMarketPlace">
+                    <Image url="@../images/refresh.png"/>
+                </ImageView>
+            </HBox>
+
         </AnchorPane>
 
     </top>

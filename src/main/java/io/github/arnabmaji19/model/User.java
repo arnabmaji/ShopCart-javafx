@@ -10,11 +10,11 @@ public class User {
     private String email;
     private String phoneNumber;
     private String password;
-    private List<String> cart;
+    private List<CartItem> cart;
 
     public User(){}
 
-    public User(ObjectId id, String name, String email, String phoneNumber, String password, List<String> cart) {
+    public User(ObjectId id, String name, String email, String phoneNumber, String password, List<CartItem> cart) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -22,6 +22,8 @@ public class User {
         this.password = password;
         this.cart = cart;
     }
+
+
 
     public ObjectId getId() {
         return id;
@@ -63,11 +65,11 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getCart() {
+    public List<CartItem> getCart() {
         return cart;
     }
 
-    public void setCart(List<String> cart) {
+    public void setCart(List<CartItem> cart) {
         this.cart = cart;
     }
 }

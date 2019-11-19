@@ -2,7 +2,12 @@ package io.github.arnabmaji19.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListCell;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import io.github.arnabmaji19.model.CartItem;
+import io.github.arnabmaji19.model.Database;
 import io.github.arnabmaji19.model.Product;
+import io.github.arnabmaji19.model.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,6 +33,8 @@ public class ProductListViewCellController extends JFXListCell<Product> {
     @Override
     protected void updateItem(Product item, boolean empty) {
         super.updateItem(item, empty);
+
+        //TODO: If a product is out of stock mark it differently
 
         if( empty || item == null){
             setText(null);
@@ -64,6 +71,11 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                     System.out.println("Failed to load Window!");
                 }
             });
+
+            addToCartButton.setOnAction(event -> new Thread(() -> Database.getInstance()
+                    .getUsersCollection()
+                    .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
+                            Updates.push("cart", new CartItem(item.getId(),1)))).start());
 
 
             setText(null);

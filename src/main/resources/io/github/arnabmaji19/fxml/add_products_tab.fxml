@@ -14,7 +14,7 @@
     stylesheets="@../styles/style.css">
     <GridPane hgap="20" vgap="20" alignment="CENTER">
         <Label
-                text="Add Products"
+                text="Add Product"
                 styleClass="large-text"
                 GridPane.rowIndex="0"
                 GridPane.columnIndex="0"

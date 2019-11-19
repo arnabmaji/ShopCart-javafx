@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXButton?>
+<StackPane
+    fx:id="stackPane"
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="io.github.arnabmaji19.controller.ViewCartController"
+    stylesheets="@../styles/style.css" style="-fx-padding: 16">
+
+    <GridPane   alignment="CENTER"
+                hgap="20" vgap="20">
+        <Label
+            text="Cart"
+            fx:id="cartOwnerLabel"
+            styleClass="large-text"
+            GridPane.rowIndex="0"
+            GridPane.columnIndex="0"
+            GridPane.halignment="CENTER"/>
+        <JFXListView
+            fx:id="cartItemsListView"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="0"
+            GridPane.halignment="CENTER"
+            prefWidth="750"
+            prefHeight="550"/>
+        <JFXButton
+            text="Proceed to Checkout"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="0"
+            GridPane.halignment="CENTER"/>
+    </GridPane>
+
+</StackPane>
+

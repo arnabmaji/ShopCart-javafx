@@ -14,7 +14,8 @@
         text="Transactions Details"
         GridPane.rowIndex="0"
         GridPane.columnIndex="0"
-        GridPane.halignment="CENTER"/>
+        GridPane.halignment="CENTER"
+        style="-fx-font-size: 20"/>
     <TableView
         fx:id="transactionsTableView"
         GridPane.rowIndex="1"

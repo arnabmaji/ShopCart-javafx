@@ -70,4 +70,9 @@ public class LogInController {
     private void signUpNewUser() throws Exception{
         App.setRoot("sign_up_user");
     }
+
+    @FXML
+    private void logInAsAdmin() throws Exception{
+        App.setRoot("admin_panel");
+    }
 }
