@@ -53,14 +53,11 @@ public class CartListViewCellController extends JFXListCell<CartListViewCellCont
             totalQuantity.setText("Quantity: " + item.getQuantity() + "");
 
             removeItemFromCartButton.setOnAction(event -> {
-                //TODO: Remove current item from User's cart
-//                new Thread(() -> {
-//                    Database.getInstance()
-//                            .getUsersCollection()
-//                            .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
-//                                    Updates.pull("cart", item.getProductId()));
-//                }).start();
-                //TODO: Remove item from ListView
+                new Thread(() -> {
+                    //TODO: Remove current item from User's cart
+                    int index = getIndex();
+
+                }).start();
                 getListView().getItems().remove(getItem());
             });
 

@@ -54,4 +54,7 @@ public class ViewCartController implements Initializable {
         cartItemsListView.setItems(cartItems);
         cartItemsListView.setFocusTraversable(false);
     }
+
+
+
 }

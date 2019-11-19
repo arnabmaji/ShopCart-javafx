@@ -2,12 +2,10 @@ package io.github.arnabmaji19.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListCell;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
-import io.github.arnabmaji19.model.CartItem;
-import io.github.arnabmaji19.model.Database;
-import io.github.arnabmaji19.model.Product;
-import io.github.arnabmaji19.model.Session;
+import io.github.arnabmaji19.model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,9 +32,8 @@ public class ProductListViewCellController extends JFXListCell<Product> {
     protected void updateItem(Product item, boolean empty) {
         super.updateItem(item, empty);
 
-        //TODO: If a product is out of stock mark it differently
-
-        if( empty || item == null){
+        //Products out of stock won't be shown
+        if( empty || item == null || item.getQuantity() == 0){
             setText(null);
             setGraphic(null);
         } else {
@@ -68,15 +65,25 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                     stage.show();
                 } catch (IOException e){
                     e.printStackTrace();
-                    System.out.println("Failed to load Window!");
                 }
             });
 
-            addToCartButton.setOnAction(event -> new Thread(() -> Database.getInstance()
-                    .getUsersCollection()
-                    .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
-                            Updates.push("cart", new CartItem(item.getId(),1)))).start());
+            addToCartButton.setOnAction(event -> {
+                new Thread(() -> {
+                    MongoCollection<User> userMongoCollection = Database.getInstance().getUsersCollection();
 
+                    //If item is already in cart, increment cart item quantity
+                    boolean wasAcknowledged =  userMongoCollection.updateOne(Filters.and(Filters.eq("_id",Session.getInstance().getUserId()),
+                            Filters.eq("cart.productId", item.getId())),
+                            Updates.inc("cart.$.quantity", 1)).wasAcknowledged();
+
+                    if(!wasAcknowledged){ //If not in cart add separately in cart
+                        userMongoCollection
+                                .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
+                                        Updates.push("cart", new CartItem(item.getId(),1)));
+                    }
+                }).start();
+            });
 
             setText(null);
             setGraphic(gridPane);
