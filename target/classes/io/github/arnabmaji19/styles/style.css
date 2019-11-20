@@ -25,3 +25,8 @@ Text {
     -fx-pref-height: 150;
     -fx-pref-width: 150;
 }
+.nav-button{
+    -fx-pref-width: 50;
+    -fx-background-color: white;
+    -fx-padding: 2;
+}

@@ -32,7 +32,7 @@ public class BuyNowDialogController{
     @FXML
     private void proceedToCheckOut(){
         //TODO: Implement a form to get the delivery location and instructions
-        AlertDialog.show(stackPane, "Product will be delivered to you!");
+        AlertDialog.show(stackPane, "Thank you for shopping with us!");
 
         new Thread(() -> {
 

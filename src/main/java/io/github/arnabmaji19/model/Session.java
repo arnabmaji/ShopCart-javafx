@@ -34,6 +34,13 @@ public class Session {
         return email;
     }
 
+    public void clear() {
+        this.isAvailable = false;
+        this.userId = null;
+        this.username = null;
+        this.email = null;
+    }
+
 
     public static Session getInstance() {
         return instance;

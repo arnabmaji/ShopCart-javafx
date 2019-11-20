@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import com.jfoenix.controls.JFXButton?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="io.github.arnabmaji19.controller.MarketPlaceController"
@@ -28,17 +29,35 @@
                     AnchorPane.topAnchor="0.0"
                     AnchorPane.rightAnchor="0.0"
                     spacing="15">
-                <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#viewCart">
-                    <Image url="@../images/cart.png"/>
-
-                </ImageView>
-                <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#refreshMarketPlace">
-                    <Image url="@../images/refresh.png"/>
-                </ImageView>
+                <JFXButton
+                        styleClass="nav-button"
+                        onAction="#viewCart">
+                    <graphic>
+                        <ImageView fitHeight="50" fitWidth="50">
+                            <Image url="@../images/cart.png"/>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton
+                        styleClass="nav-button"
+                        onAction="#refreshMarketPlace">
+                    <graphic>
+                        <ImageView fitHeight="50" fitWidth="50">
+                            <Image url="@../images/refresh.png"/>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton
+                        styleClass="nav-button"
+                        onAction="#logOutCurrentUser">
+                    <graphic>
+                        <ImageView fitHeight="50" fitWidth="50">
+                            <Image url="@../images/log_out.png"/>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
             </HBox>
-
         </AnchorPane>
-
     </top>
     <center>
         <GridPane

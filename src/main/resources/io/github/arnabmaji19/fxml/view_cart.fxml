@@ -29,10 +29,11 @@
             prefWidth="750"
             prefHeight="550"/>
         <JFXButton
-            text="Proceed to Checkout"
-            GridPane.rowIndex="2"
-            GridPane.columnIndex="0"
-            GridPane.halignment="CENTER"/>
+                text="Proceed to Checkout"
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                onAction="#proceedToCheckout"/>
     </GridPane>
 
 </StackPane>

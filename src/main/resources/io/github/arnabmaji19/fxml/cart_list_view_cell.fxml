@@ -11,9 +11,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <AnchorPane fx:id="anchorPane" prefHeight="80.0" prefWidth="650.0" style="-fx-padding: 8" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
-    <GridPane alignment="CENTER" hgap="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <GridPane alignment="CENTER" hgap="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
         <Label fx:id="productName" text="product_name" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" />
-        <Label fx:id="totalPrice" text="total_price" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+        <Label fx:id="totalPrice" text="total_price" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+               GridPane.rowIndex="0" GridPane.rowSpan="3" GridPane.valignment="CENTER"
+               style="-fx-font-size: 20"/>
 
         <Label fx:id="productDescription" text="product_description" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
         <Label fx:id="totalQuantity" text="product_quantity" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="2" />

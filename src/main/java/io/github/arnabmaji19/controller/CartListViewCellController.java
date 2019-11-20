@@ -54,8 +54,8 @@ public class CartListViewCellController extends JFXListCell<CartListViewCellCont
 
             productName.setText(item.getProductName());
             productDescription.setText("Description: " + item.getDescription());
-            totalPrice.setText(item.getPrice() * item.getQuantity() + "");
-            totalQuantity.setText("Quantity: " + item.getQuantity() + "");
+        totalPrice.setText("Total Price:\n" + item.getPrice() * item.getQuantity());
+        totalQuantity.setText("Quantity: " + item.getQuantity());
 
             removeItemFromCartButton.setOnAction(event -> {
                 new Thread(() -> {

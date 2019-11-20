@@ -2,6 +2,7 @@ package io.github.arnabmaji19.model;
 
 import org.bson.types.ObjectId;
 
+//POJO for adding Transaction history into database
 public class Transaction {
     private ObjectId id;
     private ObjectId productId;

@@ -26,14 +26,20 @@ public class ProductListViewCellController extends JFXListCell<Product> {
     @FXML private JFXButton buyNowButton;
     @FXML private JFXButton addToCartButton;
 
+    private MarketPlaceController marketPlaceController;
+
     private FXMLLoader loader;
+
+    public ProductListViewCellController(MarketPlaceController marketPlaceController) {
+        this.marketPlaceController = marketPlaceController;
+    }
 
     @Override
     protected void updateItem(Product item, boolean empty) {
         super.updateItem(item, empty);
 
-        //Products out of stock won't be shown
-        if( empty || item == null || item.getQuantity() == 0){
+
+        if (empty || item == null) {
             setText(null);
             setGraphic(null);
         } else {
@@ -48,7 +54,18 @@ public class ProductListViewCellController extends JFXListCell<Product> {
             }
             productName.setText(item.getName());
             description.setText(item.getDescription());
-            price.setText(item.getPrice() + "");
+
+            //If item is out of stock user can't buy or add to cart
+            if (item.getQuantity() == 0) {
+                price.setText("Out of Stock");
+                addToCartButton.setDisable(true);
+                buyNowButton.setDisable(true);
+            } else {
+                price.setText(item.getPrice() + "");
+                addToCartButton.setDisable(false);
+                buyNowButton.setDisable(false);
+            }
+
 
             buyNowButton.setOnAction(event -> {
                 Stage stage = new Stage();
@@ -62,7 +79,8 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
                     stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.show();
+                    stage.showAndWait();
+                    marketPlaceController.refreshMarketPlace();
                 } catch (IOException e){
                     e.printStackTrace();
                 }
@@ -83,6 +101,7 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                                         Updates.push("cart", new CartItem(item.getId(),1)));
                     }
                 }).start();
+                marketPlaceController.refreshMarketPlace();
             });
 
             setText(null);
