@@ -73,11 +73,11 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                     MongoCollection<User> userMongoCollection = Database.getInstance().getUsersCollection();
 
                     //If item is already in cart, increment cart item quantity
-                    boolean wasAcknowledged =  userMongoCollection.updateOne(Filters.and(Filters.eq("_id",Session.getInstance().getUserId()),
+                    long modifiedCount =  userMongoCollection.updateOne(Filters.and(Filters.eq("_id",Session.getInstance().getUserId()),
                             Filters.eq("cart.productId", item.getId())),
-                            Updates.inc("cart.$.quantity", 1)).wasAcknowledged();
+                            Updates.inc("cart.$.quantity", 1)).getModifiedCount();
 
-                    if(!wasAcknowledged){ //If not in cart add separately in cart
+                    if(modifiedCount == 0){ //If not in cart add separately in cart
                         userMongoCollection
                                 .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
                                         Updates.push("cart", new CartItem(item.getId(),1)));

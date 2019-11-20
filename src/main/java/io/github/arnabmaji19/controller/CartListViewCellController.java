@@ -2,6 +2,11 @@ package io.github.arnabmaji19.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListCell;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import io.github.arnabmaji19.model.CartItem;
+import io.github.arnabmaji19.model.Database;
+import io.github.arnabmaji19.model.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -55,7 +60,10 @@ public class CartListViewCellController extends JFXListCell<CartListViewCellCont
             removeItemFromCartButton.setOnAction(event -> {
                 new Thread(() -> {
                     //TODO: Remove current item from User's cart
-                    int index = getIndex();
+                    Database.getInstance()
+                            .getUsersCollection()
+                            .updateOne(Filters.eq("_id", Session.getInstance().getUserId()),
+                                    Updates.pull("cart", new CartItem(item.getProductId(), item.getQuantity())));
 
                 }).start();
                 getListView().getItems().remove(getItem());
