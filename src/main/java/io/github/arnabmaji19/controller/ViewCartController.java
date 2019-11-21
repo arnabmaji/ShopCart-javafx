@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXListView;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import io.github.arnabmaji19.model.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -72,27 +73,40 @@ public class ViewCartController implements Initializable {
             String timeOfPurchase = LocalTime.now().toString();
             String dateOfPurchase = LocalDate.now().toString();
 
+            var productsNotCheckedOut = new ArrayList<CartItem>();
 
             for (var cartDetails : cartItemsListView.getItems()) {
                 ObjectId productId = cartDetails.getProductId();
                 int quantity = cartDetails.getQuantity();
                 int totalPrice = cartDetails.getPrice() * quantity;
 
-                //Creating transaction history(In database) for each item purchased
-                var transaction = new Transaction(new ObjectId(), productId, userId,
-                        timeOfPurchase, dateOfPurchase, quantity, totalPrice);
-                transactionMongoCollection.insertOne(transaction);
+                int quantityInStock = Objects.requireNonNull(productMongoCollection
+                        .find(Filters.eq("_id", productId))
+                        .first()).getQuantity();
+                if (quantity <= quantityInStock) { //If there is enough quantity to be checked out
+                    //Creating transaction history(In database) for each item purchased
+                    var transaction = new Transaction(new ObjectId(), productId, userId,
+                            timeOfPurchase, dateOfPurchase, quantity, totalPrice);
+                    transactionMongoCollection.insertOne(transaction);
 
-                //Decrementing product quantity in stock
-                productMongoCollection.updateOne(Filters.eq("_id", productId),
-                        Updates.inc("quantity", -quantity));
+                    //Decrementing product quantity in stock
+                    productMongoCollection.updateOne(Filters.eq("_id", productId),
+                            Updates.inc("quantity", -quantity));
+                } else {
+                    //Adding products that can't be checked out because of low quantity
+                    productsNotCheckedOut.add(new CartItem(productId, quantity));
+                }
             }
-            //Emptying user's cart
+            //Updating user's cart with the products that can't be checked out or emptying cart
             userMongoCollection.updateOne(Filters.eq("_id", userId),
-                    Updates.set("cart", new ArrayList<>()));
+                    Updates.set("cart", productsNotCheckedOut));
+            Platform.runLater(() -> {
+                String message = "Thank you for shopping with us!";
+                if (productsNotCheckedOut.size() > 0) {
+                    message = "Some products couldn't be checked out\n" + message;
+                }
+                AlertDialog.show(stackPane, message);
+            });
         }).start();
-
-        AlertDialog.show(stackPane, "Thank you for shopping with us!");
     }
-
 }
