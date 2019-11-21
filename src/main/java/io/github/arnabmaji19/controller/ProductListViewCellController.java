@@ -30,7 +30,7 @@ public class ProductListViewCellController extends JFXListCell<Product> {
 
     private FXMLLoader loader;
 
-    public ProductListViewCellController(MarketPlaceController marketPlaceController) {
+    ProductListViewCellController(MarketPlaceController marketPlaceController) {
         this.marketPlaceController = marketPlaceController;
     }
 
@@ -101,7 +101,7 @@ public class ProductListViewCellController extends JFXListCell<Product> {
                                         Updates.push("cart", new CartItem(item.getId(),1)));
                     }
                 }).start();
-                marketPlaceController.refreshMarketPlace();
+                AlertDialog.show(marketPlaceController.stackPane, item.getName() + " added to cart");
             });
 
             setText(null);

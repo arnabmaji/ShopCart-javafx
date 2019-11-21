@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class MarketPlaceController implements Initializable {
 
+    @FXML
+    protected StackPane stackPane;
     @FXML private JFXListView<Product> productsListView;
 
     @Override
